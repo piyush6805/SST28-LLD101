@@ -7,8 +7,10 @@ public class Main {
         String raw = "name=Riya;email=riya@sst.edu;phone=9876543210;program=CSE";
         svc.registerFromRawInput(raw);
 
-        System.out.println();
-        System.out.println("-- DB DUMP --");
-        System.out.print(TextTable.render3(db));
+        // System.out.println();
+        // System.out.println("-- DB DUMP --");
+        // System.out.print(TextTable.render3(db));
+        Printer printer = new Printer();
+        printer.finalPrint(db);
     }
 }
