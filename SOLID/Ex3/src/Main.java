@@ -4,10 +4,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("=== Placement Eligibility ===");
 
-        // Rule thresholds from config
         RuleInput config = new RuleInput();
 
-        // Rules evaluated in order; first failure short-circuits
         List<EligibilityRule> rules = List.of(
                 new DisciplinaryFlagRule(),
                 new CgrRule(config.minCgr),

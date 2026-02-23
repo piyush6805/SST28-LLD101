@@ -1,6 +1,8 @@
+
 import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) {
         System.out.println("=== Cafeteria Billing ===");
 
@@ -11,7 +13,6 @@ public class Main {
         ruleFactory.registerDiscountRule("student", new StudentDiscountRule());
         ruleFactory.registerDiscountRule("staff", new StaffDiscountRule());
 
-        // Shared dependencies injected once
         CafeteriaSystem sys = new CafeteriaSystem(new FileStore(), new Pricing(), ruleFactory);
         sys.addToMenu(new MenuItem("M1", "Veg Thali", 80.00));
         sys.addToMenu(new MenuItem("C1", "Coffee", 30.00));

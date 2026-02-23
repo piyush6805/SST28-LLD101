@@ -1,4 +1,6 @@
 public class Money {
+    public static final Money ZERO = new Money(0.0);
+
     public final double amount;
     public Money(double amount) { this.amount = round2(amount); }
 

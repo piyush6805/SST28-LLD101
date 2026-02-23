@@ -1,11 +1,12 @@
+
 import java.util.*;
 
 public class InvoiceFormatter {
 
     public static String format(String invId, List<OrderLine> lines,
-                                Map<String, MenuItem> menu,
-                                double subtotal, double taxPct, double tax,
-                                double discount, double total) {
+            Map<String, MenuItem> menu,
+            double subtotal, double taxPct, double tax,
+            double discount, double total) {
         StringBuilder out = new StringBuilder();
         out.append("Invoice# ").append(invId).append("\n");
 
