@@ -1,60 +1,41 @@
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class Ticket {
-//     private String ticketId;
-//     private Vehicle vehicle;
-//     private Slot slot;
-//     private LocalDateTime entryTime;
+    private final String ticketId;
+    private final LocalDateTime entryTime;
+    private final Slot slot;
+    private final Vehicle vehicle;
+    private final int entryGateId;
 
-//     public Ticket(String ticketId, Vehicle vehicle, Slot slot, LocalDateTime entryTime) {
-//         this.ticketId = ticketId;
-//         this.vehicle = vehicle;
-//         this.slot = slot;
-//         this.entryTime = entryTime;
-//     }
-
-//     public Slot getSlot() {
-//         return slot;
-//     }
-
-//     public LocalDateTime getEntryTime() {
-//         return entryTime;
-//     }
-
-//     public Vehicle getVehicle() {
-//         return vehicle;
-//     }
-
-//     @Override
-//     public String toString() {
-//         return "Ticket{" + ticketId + ", slot=" + slot + "}";
-//     }
-    private String ticketId;
-    private Vehicle vehicle;
-    private Slot slot;
-    private LocalDateTime entryTime;
-
-    public Ticket(String ticketId, Vehicle vehicle, Slot slot, LocalDateTime entryTime) {
-        this.ticketId = ticketId;
-        this.vehicle = vehicle;
-        this.slot = slot;
+    public Ticket(LocalDateTime entryTime, Slot slot, Vehicle vehicle, int entryGateId) {
+        if (entryTime == null) {
+            throw new IllegalArgumentException("entryTime cannot be null");
+        }
+        this.ticketId = "T-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
         this.entryTime = entryTime;
+        this.slot = slot;
+        this.vehicle = vehicle;
+        this.entryGateId = entryGateId;
     }
 
-    public Slot getSlot() {
-        return slot;
+    public String getTicketId() {
+        return ticketId;
     }
 
     public LocalDateTime getEntryTime() {
         return entryTime;
     }
 
+    public Slot getSlot() {
+        return slot;
+    }
+
     public Vehicle getVehicle() {
         return vehicle;
     }
 
-    @Override
-    public String toString() {
-        return "Ticket{" + ticketId + ", slot=" + slot + "}";
+    public int getEntryGateId() {
+        return entryGateId;
     }
 }
